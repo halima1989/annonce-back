@@ -20,8 +20,8 @@ function connect(url, callback) {
   }
 }
 
-function db() {
-  return new Db(client, "dbOK");
+function db(name) {
+  return new Db(client, name);
 }
 
 function closeConnect() {
