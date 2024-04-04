@@ -1,4 +1,4 @@
-const { response } = require("express");
+const { response, json } = require("express");
 const { Car } = require("../Models/Car");
 const client = require("../Services/Connexion");
 
@@ -15,15 +15,17 @@ const displayCars = async (request, response) => {
 const addCars = async (request, response) => {
   try {
     let newCar = new Car(
-      request.body.name,
       request.body.image,
       request.body.model,
       request.body.brand,
       request.body.description,
       request.body.price
     );
-    let result = await client.db("kiho").collection("car").insertOne(Car);
-    response.status(200).json(result);
+    let resultProduct = await client
+      .db("kiho")
+      .collection("car")
+      .insertOne(newCar);
+    response.status(200).json(resultProduct);
   } catch {
     response.status(500).json({ msg: "Failed to add a new product" });
   }
