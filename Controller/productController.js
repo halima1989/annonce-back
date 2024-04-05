@@ -31,4 +31,18 @@ const addCars = async (request, response) => {
   }
 };
 
-module.exports = { displayCars, addCars };
+const deleteCars = async (request, response) => {
+  let id = request.params.id;
+
+  let apiCall = await client.db("kiho").collection("car").deleteOne({ id: id });
+
+  response = await apiCall;
+  response.status(200).json(response);
+  if (response.deletedCount === 1) {
+    response.status(200).json({ msg: "Product successfully deleted" });
+  } else {
+    response.status(204).json({ msg: "Couldn't find the product" });
+  }
+};
+
+module.exports = { displayCars, addCars, deleteCars };

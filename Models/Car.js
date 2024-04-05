@@ -1,10 +1,11 @@
 class Car {
   constructor(image, model, brand, description, price) {
-    image = this.image;
-    model = this.model;
-    brand = this.brand;
-    description = this.description;
-    price = this.price;
+    this.image = image;
+    this.model = model;
+    this.brand = brand;
+    this.description = description;
+    this.price = price;
+    this.user = user;
   }
 }
 
