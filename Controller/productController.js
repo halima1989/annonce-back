@@ -1,4 +1,5 @@
 const { response, json } = require("express");
+const { ObjectId } = require("mongodb");
 const { Car } = require("../Models/Car");
 const client = require("../Services/Connexion");
 
@@ -66,4 +67,33 @@ const deleteCars = async (request, response) => {
   }
 };
 
-module.exports = { displayCars, addCars, deleteCars };
+const updateCars = async (request, response) => {
+  try {
+    let id = new ObjectId(request.params.id);
+
+    let image = request.body.id;
+    let model = request.body.model;
+    let brand = request.body.brand;
+    let description = request.body.description;
+    let price = request.body.price;
+    let user = request.body.user;
+
+    let result = await client
+      .db("kiho")
+      .collection("car")
+      .updateOne(
+        { _id: id },
+        { $set: { image, model, brand, description, price, user } }
+      );
+
+    if (result.modifiedCount === 1) {
+      response.status(200).json({ msg: "Update successful" });
+    } else {
+      response.status(404).json({ msg: "Update failed. Try again" });
+    }
+  } catch (error) {
+    console.log(error);
+    response.status(501).json(error);
+  }
+};
+module.exports = { displayCars, addCars, deleteCars, updateCars };
