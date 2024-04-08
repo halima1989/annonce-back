@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.route("/products").post(displayCars);
 router.route("/addcar").post(addCars);
-router.route("/deletecar").delete(deleteCars);
+router.route("/deletecar/:id").delete(deleteCars);
 
 module.exports = router;
