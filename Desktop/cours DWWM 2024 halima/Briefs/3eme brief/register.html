@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form style="border:1px solid #ccc">
+        <div class="container">
+          <h1>S'inscrire</h1>
+          <p>Veuillez remplir le formulaire ci-dessous: </p>
+          <hr>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+      
+          <label for="psw"><b>Mot de passe</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <label for="psw-repeat"><b>Confirmez le mot de passe </b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+          <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          </label>
+      
+          <p>En créant votre compte tu es d'accord avec nos <a href="#" style="color:dodgerblue">Conditions et Confidentialité</a>.</p>
+      
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">Annuler</button>
+            <button type="submit" class="signupbtn"><a href="register.html">S'inscrire</a></button>
+          </div>
+        </div>
+      </form>
+</body>
+</html>
