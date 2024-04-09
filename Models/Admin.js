@@ -6,3 +6,5 @@ class Admin extends User {
     this.role = "admin";
   }
 }
+
+module.exports = { Admin };

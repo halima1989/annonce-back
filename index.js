@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
 const userRoute = require("./Controller/routes/user");
-// const loginRoute = require("./Controller/routes/user");
 const productRoute = require("../annonce-back/Controller/routes/car");
+const adminRoute = require("./Controller/routes/admin");
+
 const { connect } = require("./Services/Connexion");
+
 app.use(express.json());
+app.use(cors());
 
 connect("mongodb://127.0.0.1:27017/", (error) => {
   if (error) {
@@ -16,8 +21,8 @@ connect("mongodb://127.0.0.1:27017/", (error) => {
 });
 
 app.use("/", userRoute);
-// app.use("/", loginRoute);
 app.use("/products", productRoute);
+app.use("/admin", adminRoute);
 
 app.listen(6000);
 

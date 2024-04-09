@@ -1,6 +1,8 @@
-const { Admin } = require("../Models/Admin");
+const { ObjectId } = require("mongodb");
+const client = require("../Services/Connexion");
+const { response, json } = require("express");
 
-const deleteCarsasAdmin = async (req, res) => {
+const deleteCarsasAdmin = async (request, response) => {
   try {
     let id = new ObjectId(request.params.id);
 

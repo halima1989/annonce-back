@@ -1,8 +1,8 @@
 const express = require("express");
-const { deleteCarasAdmin } = require("../adminController");
+const { deleteCarsasAdmin } = require("../adminController");
 
 const router = express.Router();
 
-router.route("/admin").post(deleteCarasAdmin);
+router.route("/admin/:id").delete(deleteCarsasAdmin);
 
 module.exports = router;
