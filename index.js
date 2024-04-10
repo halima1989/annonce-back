@@ -24,6 +24,6 @@ app.use("/", userRoute);
 app.use("/products", productRoute);
 app.use("/admin", adminRoute);
 
-app.listen(6000);
+app.listen(3025);
 
 console.log("Hello, world");

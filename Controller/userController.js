@@ -49,6 +49,7 @@ const login = async (request, response) => {
       { expiresIn: "1h" }
     );
 
+    user.isactive = true;
     response.status(200).json({ token });
   } catch (error) {
     console.log(error);

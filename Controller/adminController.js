@@ -1,8 +1,13 @@
 const { ObjectId } = require("mongodb");
 const client = require("../Services/Connexion");
 const { response, json } = require("express");
+const { User } = require("../Models/User");
 
 const deleteCarsasAdmin = async (request, response) => {
+  if (!user.role == "admin") {
+    response.status(400).json({ msg: "Unauthorized action" });
+    return;
+  }
   try {
     let id = new ObjectId(request.params.id);
 
